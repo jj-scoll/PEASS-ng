@@ -36,3 +36,6 @@ regexes.yaml
 .github/instructions/
 .github/workflows/build-artifacts.yml
 build_lists/regexes.yaml
+# Nix build output symlinks
+result
+result-*
