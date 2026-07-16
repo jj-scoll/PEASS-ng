@@ -62,7 +62,7 @@ class LinpeasBaseBuilder:
         initial_functions = set()
         for section_name, section_info in section_checks.items():
             # Add 1 time the big section name to check_names to then put it inside linpeas in PEAS_CHECKS_MARKUP
-            if not section_info['name_check'] in check_names: check_names.append(section_info['name_check'])
+            if section_info['name_check'] not in check_names: check_names.append(section_info['name_check'])
 
             # Collect all MITRE IDs declared across every check in this section
             section_mitre_ids = []
@@ -87,7 +87,7 @@ class LinpeasBaseBuilder:
             section_info["checks"] = sorted(section_info["checks"], key=lambda x: int(os.path.basename(x.path).split('_')[0]) if os.path.basename(x.path).split('_')[0].isdigit() else 99)
             for check in section_info["checks"]:
                 for func in check.initial_functions:
-                    if not func in initial_functions:
+                    if func not in initial_functions:
                         self.linpeas_base += func + "\n"
                         initial_functions.add(func)
 
@@ -103,7 +103,7 @@ class LinpeasBaseBuilder:
             if extra_fi:
                 self.linpeas_base += "fi\n"
 
-            self.linpeas_base += f"\nfi\necho ''\necho ''\n"
+            self.linpeas_base += "\nfi\necho ''\necho ''\n"
             self.linpeas_base += 'if [ "$WAIT" ]; then echo "Press enter to continue"; read "asd"; fi\n'
 
         self.linpeas_base = self.linpeas_base.replace(PEAS_CHECKS_MARKUP, ",".join(check_names))

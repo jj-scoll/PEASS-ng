@@ -44,7 +44,7 @@ class MyDocTemplate(BaseDocTemplate):
 # Poor take at dynamicly generating styles depending on depth(?)
 def get_level_styles(level):
     global styles
-    indent_value = 10 * (level - 1);
+    indent_value = 10 * (level - 1)
     # Overriding some default stylings
     level_styles = { 
         "title": ParagraphStyle(
@@ -155,7 +155,7 @@ if __name__ == "__main__":
     try:
         JSON_PATH = sys.argv[1]
         PDF_PATH = sys.argv[2]
-    except IndexError as err:
+    except IndexError:
         print("Error: Please pass the peas.json file and the path to save the pdf\njson2pdf.py <json_file> <pdf_file.pdf>")
         sys.exit(1)
     

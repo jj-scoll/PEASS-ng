@@ -180,7 +180,7 @@ if __name__ == "__main__":
         outputpath = sys.argv[1]
         jsonpath = sys.argv[2]
         parse_peass(outputpath, jsonpath)
-    except IndexError as err:
+    except IndexError:
         print("Error: Please pass the peas.out file and the path to save the json\npeas2json.py <output_file> <json_file.json>")
         sys.exit(1)
     

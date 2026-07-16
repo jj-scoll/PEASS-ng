@@ -340,7 +340,7 @@ if __name__ == "__main__":
     try:
         JSON_PATH = sys.argv[1]
         HTML_PATH = sys.argv[2]
-    except IndexError as err:
+    except IndexError:
         print("Error: Please pass the peas.json file and the path to save the html\npeas2html.py <json_file.json> <HTML_file.html>")
         sys.exit(1)
     

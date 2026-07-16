@@ -23,7 +23,7 @@
 
             src = pkgs.fetchurl {
               url = "https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh";
-              sha256 = "sha256-HKwu/f3NEgK+zlNhJVv3EvszfYaDpMgYf4e3KEr7UU0=";
+              sha256 = "sha256-kxZJOr4PKi2tf5TWI72ResmQyd3XU33aydcVpUEOKKg=";
             };
 
             dontUnpack = true;

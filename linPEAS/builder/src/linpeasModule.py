@@ -176,11 +176,11 @@ class LinpeasModule:
 
         # Check if the indicated dependencies are actually being used
         for func in self.functions_used:
-            if func not in self.sh_code and func not in self.initial_functions and not "peass{" in self.sh_code:
+            if func not in self.sh_code and func not in self.initial_functions and "peass{" not in self.sh_code:
                 raise Exception(f"Used function '{func}' in module {path} doesn't exist in the module code")
         
         for var in self.global_variables:
-            if var not in self.sh_code and not "peass{" in self.sh_code:
+            if var not in self.sh_code and "peass{" not in self.sh_code:
                 raise Exception(f"Used variable '{var}' in module {path} doesn't exist in the module code")
         
         for var in self.generated_global_variables:
@@ -218,7 +218,7 @@ class LinpeasModule:
         
         not_defined_global_vars = []
         for var in self.extract_variables(self.sh_code):
-            if len(var) > 2 and not var in linux_global_vars and var not in self.global_variables and var not in self.generated_global_variables:
+            if len(var) > 2 and var not in linux_global_vars and var not in self.global_variables and var not in self.generated_global_variables:
                 if not var.startswith("PSTORAGE_"):
                     if not main_base or var not in main_base.generated_global_variables:
                         not_defined_global_vars.append("$"+var)

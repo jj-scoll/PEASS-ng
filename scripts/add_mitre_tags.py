@@ -4,7 +4,9 @@ Adds # Mitre: metadata and annotates print_2title/print_3title calls
 in every LinPEAS check module with the appropriate MITRE ATT&CK technique IDs.
 """
 
-import os, re, sys
+import os
+import re
+import sys
 
 BASE = os.path.join(os.path.dirname(__file__), "..", "linPEAS", "builder", "linpeas_parts")
 
