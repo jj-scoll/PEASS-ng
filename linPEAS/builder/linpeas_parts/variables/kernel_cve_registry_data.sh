@@ -2,7 +2,7 @@
 # ID: kernel_cve_registry_data
 # Author: Carlos Polop
 # Contributor: Arjay Saguisa
-# Last Update: 29-06-2026
+# Last Update: 06-07-2026
 # Description: Embedded kernel exploit matching datasets extracted from linux-exploit-suggester and linux-exploit-suggester-2 examples. Data is split across KERNEL_CVE_DATA_1..X with a maximum of 25 rows per env variable. This file also stores reference-only CVE tokens found in example repos when no explicit suggester matching rule exists.
 # License: GNU GPL
 # Version: 1.0
@@ -611,6 +611,7 @@ CVE-2026-31431	Copy Fail	pkg=linux-kernel,ver>=6.2,ver<6.6.137,CONFIG_CRYPTO_USE
 CVE-2026-31431	Copy Fail	pkg=linux-kernel,ver>=6.7,ver<6.12.85,CONFIG_CRYPTO_USER_API_AEAD=[my],CONFIG_CRYPTO_AUTHENC=[my]		1	Upstream issue introduced in 4.14; fixed by stable backports and in mainline 7.0
 CVE-2026-31431	Copy Fail	pkg=linux-kernel,ver>=6.13,ver<6.18.22,CONFIG_CRYPTO_USER_API_AEAD=[my],CONFIG_CRYPTO_AUTHENC=[my]		1	Upstream issue introduced in 4.14; fixed by stable backports and in mainline 7.0
 CVE-2026-31431	Copy Fail	pkg=linux-kernel,ver>=6.19,ver<6.19.12,CONFIG_CRYPTO_USER_API_AEAD=[my],CONFIG_CRYPTO_AUTHENC=[my]		1	Upstream issue fixed in 6.19.12 and mainline 7.0
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=3.9,ver<5.10.257		1	Fixed in stable 5.10.257; exploit path is in the networking stack and may be mitigated by removing the relevant ESP modules
 CVE-2017-16994	catalog_reference_only	9999.9999.9999		0	Reference-only CVE token from example repos; appears as related bypass mention
 CVE-2020-27171	catalog_reference_only	9999.9999.9999		0	Reference-only CVE token from example repos; appears as related comment in exploit source
 CVE-2024-0193	catalog_reference_only	9999.9999.9999		0	Reference-only CVE token from example repos; appears as upstream source reference
@@ -623,6 +624,20 @@ EOF_DATA_21
 )"
 
 KERNEL_CVE_DATA_22="$(cat <<'EOF_DATA_22'
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=5.11,ver<5.15.208		1	Fixed in stable 5.15.208; exploit path is in the networking stack and may be mitigated by removing the relevant ESP modules
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=5.16,ver<6.1.174		1	Fixed in stable 6.1.174; exploit path is in the networking stack and may be mitigated by removing the relevant ESP modules
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=6.2,ver<6.6.141		1	Fixed in stable 6.6.141; exploit path is in the networking stack and may be mitigated by removing the relevant ESP modules
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=6.7,ver<6.12.91		1	Fixed in stable 6.12.91; exploit path is in the networking stack and may be mitigated by removing the relevant ESP modules
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=6.13,ver<6.18.33		1	Fixed in stable 6.18.33; exploit path is in the networking stack and may be mitigated by removing the relevant ESP modules
+CVE-2026-43503	DirtyClone	pkg=linux-kernel,ver>=6.19,ver<7.0.10		1	Fixed in stable 7.0.10 and mainline 7.1
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=4.19.244,ver<4.20		1	Fixed before 4.20 in later backports; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=5.4.195,ver<5.5		1	Fixed before 5.5 in later backports; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=5.10.117,ver<5.11		1	Fixed before 5.11 in later backports; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=5.15.41,ver<5.16		1	Fixed before 5.16 in later backports; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=5.17.9,ver<5.18		1	Fixed before 5.18 in later backports; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=5.18,ver<6.12.94		1	Fixed in stable 6.12.94; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=6.13,ver<6.18.36		1	Fixed in stable 6.18.36; exploit path uses the traffic-control act_pedit subsystem
+CVE-2026-46331	pedit COW	pkg=linux-kernel,ver>=6.19,ver<7.0.13		1	Fixed in stable 7.0.13 and mainline 7.1
 CVE-2026-46333	ptrace exit-race	pkg=linux-kernel,ver>=3.16.52,ver<3.17,cmd:[ "$(cat /proc/sys/kernel/yama/ptrace_scope 2>/dev/null || echo 0)" -lt 2 ]		1	Upstream issue backported into 3.16 at 3.16.52; mitigated by kernel.yama.ptrace_scope >= 2
 CVE-2026-46333	ptrace exit-race	pkg=linux-kernel,ver>=4.4.40,ver<4.5,cmd:[ "$(cat /proc/sys/kernel/yama/ptrace_scope 2>/dev/null || echo 0)" -lt 2 ]		1	Upstream issue backported into 4.4 at 4.4.40; mitigated by kernel.yama.ptrace_scope >= 2
 CVE-2026-46333	ptrace exit-race	pkg=linux-kernel,ver>=4.8.16,ver<4.9,cmd:[ "$(cat /proc/sys/kernel/yama/ptrace_scope 2>/dev/null || echo 0)" -lt 2 ]		1	Upstream issue backported into 4.8 at 4.8.16; mitigated by kernel.yama.ptrace_scope >= 2
