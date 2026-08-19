@@ -114,7 +114,6 @@
 
             # System enumeration
             lynis              # Security auditing tool
-            chkrootkit         # Rootkit detection
 
             # Network security
             nmap               # Port scanning
